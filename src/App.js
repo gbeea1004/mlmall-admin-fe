@@ -5,7 +5,6 @@ import Headers from './component/Headers';
 import Bodys from './component/Bodys';
 
 function App() {
-  const { Header, Sider, Content } = Layout;
   const {
     token: { colorBgContainer },
   } = theme.useToken();

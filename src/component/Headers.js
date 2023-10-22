@@ -1,4 +1,4 @@
-import { Button, theme } from "antd";
+import { Button } from "antd";
 import { Header } from "antd/es/layout/layout";
 
 function Headers ({collapsed, setCollapsed, colorBgContainer}) {
