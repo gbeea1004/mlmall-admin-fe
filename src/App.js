@@ -1,28 +1,31 @@
-import { Layout, Menu } from 'antd';
-import Bodys from './component/Bodys';
-import Headers from './component/Headers';
-import Sidebars from './component/Sidebars';
+import { Layout, theme } from 'antd';
 import { useState } from 'react';
+import Sidebar from './component/Sidebars';
+import Headers from './component/Headers';
+import Bodys from './component/Bodys';
 
 function App() {
   const { Header, Sider, Content } = Layout;
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className='Sidebar' />
-        <Menu
-          items={[
-            {
-              key: '1',
-              label: 'nav 1'
-            }
-          ]}
-
+      <Sidebar 
+        collapsed = {collapsed}
+      />
+      <Layout>
+        <Headers 
+          collapsed = {collapsed}
+          setCollapsed = {setCollapsed}
+          colorBgContainer = {colorBgContainer}
         />
-
-      </Sider>
+        <Bodys 
+          colorBgContainer = {colorBgContainer}
+        />
+      </Layout>
     </Layout>
   );
 }
